@@ -3,8 +3,8 @@ const subtract = (a, b) => a - b;
 const multiply = (a, b) => a * b;
 const divide = (a, b) => a / b;
 
-let firstOperand = 0;
-let secondOperand = 0;
+let firstOperand = "";
+let secondOperand = "";
 let operator = "";
 
 function operate(a, b, c) {
@@ -26,12 +26,25 @@ function operate(a, b, c) {
     return result;
 };
 
-const buttons = Array.from(document.querySelectorAll("button"));
+const numberButtons = Array.from(document.querySelectorAll(".number"));
+const operatorButtons = Array.from(document.querySelectorAll(".operator"));
 const display = document.querySelector(".display");
 
-buttons.forEach((button) => {
+numberButtons.forEach((button) => {
     button.addEventListener("click" , () => {
-        firstOperand = button.id;
-        display.textContent = firstOperand;
+
+        /*if (firstOperand === "") {
+            firstOperand = button.id;
+            display.textContent = firstOperand;
+        } else {
+            secondOperand = button.id;
+            display.textContent = firstOperand + " " + secondOperand;
+        };*/
     });
+});
+
+
+const buttons = Array.from(document.querySelectorAll("button"));
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {display.textContent = "sadanbdhusnah anhAAAAAAAAAAAAAAAHHHHHH"});
 });
