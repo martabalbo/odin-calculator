@@ -26,4 +26,11 @@ function operate(a, b, c) {
     return result;
 };
 
-console.log(operate(2,3,"-"))
+const buttons = Array.from(document.querySelectorAll("button"));
+
+buttons.forEach((button) => {
+    button.addEventListener("click" , () => {
+        firstOperand = button.id;
+        console.log(firstOperand);
+    });
+});
