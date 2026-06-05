@@ -27,10 +27,11 @@ function operate(a, b, c) {
 };
 
 const buttons = Array.from(document.querySelectorAll("button"));
+const display = document.querySelector(".display");
 
 buttons.forEach((button) => {
     button.addEventListener("click" , () => {
         firstOperand = button.id;
-        console.log(firstOperand);
+        display.textContent = firstOperand;
     });
 });
