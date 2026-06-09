@@ -57,11 +57,13 @@ operatorButtons.forEach((button) => {
 const equalButton = document.querySelector(".equals");
 
 equalButton.addEventListener("click", () => {
-    firstOperand = operate(firstOperand, secondOperand, operator);
+    let result = operate(firstOperand, secondOperand, operator);
+    firstOperand = "";
     secondOperand = "";
     operator = "";
-    display.textContent = firstOperand;
+    display.textContent = result;
 });
+
 
 //to do: if a result is displayed, make it not possible to add numbers to it.
 //instead substitute the number.
