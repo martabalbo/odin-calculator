@@ -53,24 +53,28 @@ const operatorButtons = Array.from(document.querySelectorAll(".operator"));
 
 operatorButtons.forEach((button) => {
     button.addEventListener("click" , () => {
-        if (operator != "") {
-            firstOperand = operate(firstOperand, secondOperand, operator);
-            secondOperand = "";
-        }
+        if (firstOperand != "") {
+            if (operator != "") {
+                firstOperand = operate(firstOperand, secondOperand, operator);
+                secondOperand = "";
+            };
         operator = button.id;
         display.textContent = firstOperand + operator;
+        };
     });
 });
 
 const equalButton = document.querySelector(".equals");
 
 equalButton.addEventListener("click", () => {
-    let result = operate(firstOperand, secondOperand, operator);
-    firstOperand = "";
-    secondOperand = "";
-    operator = "";
-    display.textContent = result;
-});
+    if (secondOperand != "") {
+        let result = operate(firstOperand, secondOperand, operator);
+        firstOperand = "";
+        secondOperand = "";
+        operator = "";
+        display.textContent = result;
+    };
+    });
 
 const clearButton = document.querySelector(".clear");
 
@@ -80,12 +84,6 @@ clearButton.addEventListener("click", () => {
     operator = "";
     display.textContent = "";
 });
-
-
-//to do: if a result is displayed, make it not possible to add numbers to it.
-//instead substitute the number.
-
-
 
 //panic button
 /*const buttons = Array.from(document.querySelectorAll("button"));
