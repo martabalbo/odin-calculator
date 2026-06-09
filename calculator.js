@@ -20,6 +20,14 @@ function operate(a, b, c) {
             result = multiply(a, b);
             break;
         case "/":
+            if (b == 0) {
+            alert("NEVER DIVIDE BY ZERO!!!");
+            firstOperand = "";
+            secondOperand = "";
+            operator = "";
+            display.textContent = "";
+            break
+            };
             result = divide(a, b);
             break;
     };
@@ -62,6 +70,15 @@ equalButton.addEventListener("click", () => {
     secondOperand = "";
     operator = "";
     display.textContent = result;
+});
+
+const clearButton = document.querySelector(".clear");
+
+clearButton.addEventListener("click", () => {
+    firstOperand = "";
+    secondOperand = "";
+    operator = "";
+    display.textContent = "";
 });
 
 
