@@ -38,14 +38,25 @@ const numberButtons = Array.from(document.querySelectorAll(".number"));
 const display = document.querySelector(".display");
 
 numberButtons.forEach((button) => {
-    button.addEventListener("click" , () => {
-        if (operator == "") {
-            firstOperand = firstOperand + button.id;
-            display.textContent = firstOperand;
-        } else {
-            secondOperand = secondOperand + button.id;
-            display.textContent = firstOperand + operator + secondOperand;
-        };
+    button.addEventListener("click" , function addNumber() {
+        if (!display.textContent.includes(".") || button.id != ".") {
+            if (button.id == ".") {
+                if (firstOperand == "") {
+                    firstOperand = 0;
+                }
+                if (secondOperand == "" && operator != "") {
+                    alert(button.id)
+                    secondOperand = 0;
+                }
+            }
+            if (operator == "") {
+                firstOperand = firstOperand + button.id;
+                display.textContent = firstOperand;
+            } else {
+                secondOperand = secondOperand + button.id;
+                display.textContent = firstOperand + operator + secondOperand;
+            };
+        }
     });
 });
 
@@ -58,8 +69,8 @@ operatorButtons.forEach((button) => {
                 firstOperand = operate(firstOperand, secondOperand, operator);
                 secondOperand = "";
             };
-        operator = button.id;
-        display.textContent = firstOperand + operator;
+            operator = button.id;
+            display.textContent = firstOperand + operator;
         };
     });
 });
