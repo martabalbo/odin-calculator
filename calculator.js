@@ -96,6 +96,23 @@ clearButton.addEventListener("click", () => {
     display.textContent = "";
 });
 
+const backspaceButton = document.querySelector(".backspace");
+
+backspaceButton.addEventListener("click", () => {
+    if (secondOperand != "") {
+        secondOperand = secondOperand.slice(0, -1);
+    } else {
+        if (operator != "") {
+            operator = "";
+        } else {
+            if (firstOperand != "") {
+                firstOperand = firstOperand.slice(0, -1);
+            }
+        }
+    }
+    display.textContent = display.textContent.slice(0, -1);
+});
+
 //panic button
 /*const buttons = Array.from(document.querySelectorAll("button"));
 buttons.forEach((button) => {
